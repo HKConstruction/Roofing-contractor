@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HK Construction LLC delivers top-tier roofing repair, siding installation, and deck construction services with exceptional quality and unmatched craftsmanship.">
+    <title>HK Construction LLC - Building Excellence</title>
+    
+    <style>
+        /* Base Reset & Variables - Dark Theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #f39c12; /* Gold/Amber Accent */
+            --primary-hover: #d3830e;
+            --bg-dark: #0a0e17;       /* Main Deep Black Body */
+            --bg-card: #141c2b;       /* Card/Section Dark Slate */
+            --bg-navbar: #0a0e17;
+            --border-color: #1f293d;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --white: #ffffff;
+        }
+
+        body {
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: #000000;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Navbar - Transparent Logo */
+        .navbar {
+            background-color: var(--bg-navbar);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo img {
+            max-height: 50px;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(10, 14, 23, 0.8), rgba(10, 14, 23, 0.85)), 
+                        url('https://imageio.forbes.com/specials-images/imageserve/61a7bceca78dd723729f5183/0x0.jpg?format=jpg&height=600&width=1200&fit=bounds') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto 30px;
+            color: var(--text-muted);
+        }
+
+        /* About Section - Equal Columns */
+        .about .about-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-image, .about-content {
+            flex: 1;
+            width: 50%;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--bg-card);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background-color: var(--bg-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service-info {
+            padding: 20px;
+        }
+
+        .service-info h3 {
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .service-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .services-btn-container {
+            text-align: center;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-card);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background-color: var(--bg-card);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background-color: var(--bg-dark);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .review-card p {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .review-card h4 {
+            color: var(--primary-color);
+            text-align: right;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-cta {
+            text-align: center;
+            background-color: var(--bg-dark);
+            color: var(--white);
+        }
+
+        .contact-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--text-muted);
+        }
+
+        /* Footer - Transparent Logo */
+        footer {
+            background-color: #05070c;
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-col p, .footer-col ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-logo {
+            max-height: 45px;
+            margin-bottom: 15px;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            height: 180px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .about .about-wrapper {
+                flex-direction: column;
+            }
+
+            .about-image, .about-content {
+                width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://hkwecanhelp.com/wp-content/uploads/2023/07/Logo2.2303011050295-1-e1728587595345.png" alt="HK Construction LLC Logo">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="https://hkwecanhelp.com/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Building Your Vision With Precision</h1>
+            <p>HK Construction LLC delivers top-tier roofing, siding, and deck construction services with exceptional quality and unmatched craftsmanship.</p>
+            <a href="contact.html" class="btn">Get Help Today</a>
+        </div>
+    </section>
+
+    <!-- About Section - Equal Columns -->
+    <section class="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <img src="https://nascosales.com/wp-content/uploads/2022/08/Construction-1.jpg" alt="HK Construction Site Work">
+                </div>
+                <div class="about-content">
+                    <h2>About HK Construction LLC</h2>
+                    <p>With years of experience in specialized home improvement and structural solutions, HK Construction LLC stands as a trusted name in residential and commercial projects.</p>
+                    <p>We combine modern techniques, durable materials, and dedicated management to bring your exterior and interior renovation projects to life efficiently and on budget.</p>
+                    <a href="about.html" class="btn">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our Specialized Services</h2>
+            <div class="services-grid">
+                <!-- Service 1: Roofing Repair -->
+                <div class="service-card">
+                    <img src="https://avatars.mds.yandex.net/i?id=0ebf4fdadb7c33c83c9f3e5fab45d0296cdf0448-12471612-images-thumbs&n=13" alt="Roofing Repair">
+                    <div class="service-info">
+                        <h3>Roofing Repair</h3>
+                        <p>Comprehensive roof repair services to address leaks, structural damage, and weather wear, keeping your home fully protected year-round.</p>
+                    </div>
+                </div>
+                <!-- Service 2: Siding Installation -->
+                <div class="service-card">
+                    <img src="https://avatars.mds.yandex.net/i?id=fb8c75e4e5480812c4f4994b8409566c5ede3906-4369663-images-thumbs&n=13" alt="Siding Installation">
+                    <div class="service-info">
+                        <h3>Siding Installation</h3>
+                        <p>Enhance your property's curb appeal and energy efficiency with modern, weather-resistant siding installation and exterior upgrades.</p>
+                    </div>
+                </div>
+                <!-- Service 3: Decks -->
+                <div class="service-card">
+                    <img src="https://i.pinimg.com/736x/f7/e0/e8/f7e0e8614a3a333cc58f13f0fe5e01f7.jpg" alt="Custom Decks">
+                    <div class="service-info">
+                        <h3>Custom Decks</h3>
+                        <p>Beautifully crafted wooden and composite custom decks designed to maximize your outdoor living and entertainment spaces.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="services-btn-container">
+                <a href="services.html" class="btn">Explore More Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Experienced Team</h3>
+                    <p>Our licensed professionals bring deep industry experience and skilled technique to every project.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Quality Materials</h3>
+                    <p>We source premium, reliable materials that guarantee longevity, safety, and structural integrity.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>On-Time Completion</h3>
+                    <p>We respect deadlines and manage work efficiently so your build stays strictly on schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-title">Client Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p>"HK Construction LLC did an amazing job fixing our damaged roof after a heavy storm. Fast response and excellent quality!"</p>
+                    <h4>— Mark S., Homeowner</h4>
+                </div>
+                <div class="review-card">
+                    <p>"The new siding installation completely transformed our home's exterior look. The crew was clean, efficient, and professional."</p>
+                    <h4>— Sarah L., Homeowner</h4>
+                </div>
+                <div class="review-card">
+                    <p>"They designed and built a gorgeous custom deck in our backyard. Solid craftsmanship and completed ahead of schedule!"</p>
+                    <h4>— David R., Property Manager</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Ready to Start Your Construction Project?</h2>
+            <p>Get in touch with HK Construction LLC today to discuss your vision, receive a custom estimate, and start planning your next build.</p>
+            <a href="contact.html" class="btn">Get Help Now</a>
+        </div>
+    </section>
+
+    <!-- 4-Column Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Logo and Tagline -->
+                <div class="footer-col">
+                    <img src="https://hkwecanhelp.com/wp-content/uploads/2023/07/Logo2.2303011050295-1-e1728587595345.png" alt="HK Construction LLC Logo" class="footer-logo">
+                    <p>Building quality, trust, and structural integrity into every residential and commercial construction project.</p>
+                </div>
+
+                <!-- Column 2: Get In Touch -->
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <p><strong>Phone:</strong> (205) 518-9598</p>
+                    <p><strong>Email:</strong> k.habner@wecanhelp.com</p>
+                    <p><strong>Address:</strong> 4000 Eagle Point Corporate Drive, Birmingham, Alabama 35242</p>
+                </div>
+
+                <!-- Column 3: Navigation Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Google Maps Embed -->
+                <div class="footer-col footer-map">
+                    <h4>Our Location</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d365747.33559654775!2d-86.78473699999999!3d33.42268995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407cd4e836ee5079%3A0x7f3090bd71600e71!2sHK%20Construction%20LLC!5e1!3m2!1sen!2s!4v1786745550438!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 HK Construction LLC. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
