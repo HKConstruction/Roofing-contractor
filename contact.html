@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact HK Construction LLC for professional roofing, remodeling, decks, and fencing services in Birmingham, AL.">
+    <title>Contact Us - HK Construction LLC</title>
+    
+    <style>
+        /* Base Reset & Variables - Dark Theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #f39c12; /* Gold/Amber Accent */
+            --primary-hover: #d3830e;
+            --bg-dark: #0a0e17;       /* Main Deep Black Body */
+            --bg-card: #141c2b;       /* Card/Section Dark Slate */
+            --bg-navbar: #0a0e17;
+            --border-color: #1f293d;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --white: #ffffff;
+        }
+
+        body {
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: #000000;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Navbar - Transparent Logo */
+        .navbar {
+            background-color: var(--bg-navbar);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo img {
+            max-height: 50px;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(rgba(10, 14, 23, 0.85), rgba(10, 14, 23, 0.9)), 
+                        url('https://i.pinimg.com/originals/08/4a/01/084a01d1ca7d761718fda851a9fa78b3.jpg?nii=t') center/cover no-repeat;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 2.8rem;
+            color: var(--white);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-banner p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--bg-dark);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .contact-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(243, 156, 18, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            border: 1px solid var(--primary-color);
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .contact-card p, .contact-card a {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-card a {
+            transition: color 0.3s;
+            display: block;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Direct CTA Box */
+        .direct-cta {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .direct-cta h2 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .direct-cta p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: #000000;
+        }
+
+        /* Footer - Transparent Logo */
+        footer {
+            background-color: #05070c;
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-col p, .footer-col ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-logo {
+            max-height: 45px;
+            margin-bottom: 15px;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            height: 180px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .page-banner h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://hkwecanhelp.com/wp-content/uploads/2023/07/Logo2.2303011050295-1-e1728587595345.png" alt="HK Construction LLC Logo">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch directly with our team for consultations, estimates, and inquiries.</p>
+        </div>
+    </div>
+
+    <!-- Contact Info Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Reach Our Team</h2>
+            
+            <div class="contact-grid">
+                
+                <!-- Phone Info -->
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone Number</h3>
+                    <p>Call or text us directly:</p>
+                    <a href="tel:2055189598">(205) 518-9598</a>
+                </div>
+
+                <!-- Email Info -->
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email Address</h3>
+                    <p>Send us an email anytime:</p>
+                    <a href="mailto:k.habner@wecanhelp.com">k.habner@wecanhelp.com</a>
+                </div>
+
+                <!-- Address Info -->
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Office Address</h3>
+                    <p>4000 Eagle Point Corporate Drive</p>
+                    <p>Birmingham, Alabama 35242</p>
+                </div>
+
+                <!-- Business Hours -->
+                <div class="contact-card">
+                    <div class="contact-icon">🕒</div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    <p>Saturday - Sunday: Closed</p>
+                </div>
+
+            </div>
+
+            <!-- Direct Call/Email Action Box -->
+            <div class="direct-cta">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Skip the forms—connect directly with HK Construction LLC to discuss your roofing, remodeling, or custom deck project today.</p>
+                <div class="cta-buttons">
+                    <a href="tel:2055189598" class="btn">Call Us Now</a>
+                    <a href="mailto:k.habner@wecanhelp.com" class="btn btn-secondary">Send an Email</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4-Column Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Logo and Tagline -->
+                <div class="footer-col">
+                    <img src="https://hkwecanhelp.com/wp-content/uploads/2023/07/Logo2.2303011050295-1-e1728587595345.png" alt="HK Construction LLC Logo" class="footer-logo">
+                    <p>Building quality, trust, and structural integrity into every residential and commercial construction project.</p>
+                </div>
+
+                <!-- Column 2: Get In Touch -->
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <p><strong>Phone:</strong> (205) 518-9598</p>
+                    <p><strong>Email:</strong> k.habner@wecanhelp.com</p>
+                    <p><strong>Address:</strong> 4000 Eagle Point Corporate Drive, Birmingham, Alabama 35242</p>
+                </div>
+
+                <!-- Column 3: Navigation Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Google Maps Embed -->
+                <div class="footer-col footer-map">
+                    <h4>Our Location</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d365747.33559654775!2d-86.78473699999999!3d33.42268995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407cd4e836ee5079%3A0x7f3090bd71600e71!2sHK%20Construction%20LLC!5e1!3m2!1sen!2s!4v1786745550438!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 HK Construction LLC. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
